@@ -16,6 +16,7 @@ import { readSaved, removeBook, saveBook } from '../data/storage';
 import { colors } from '../theme';
 
 
+
 const offlineError =
   'This book is not saved on this device. Reconnect to open its details.';
 
@@ -24,7 +25,9 @@ export function DetailsScreen({ route }) {
   return <BookDetails key={id} id={id} initialBook={book} />;
 }
 
+
 function BookDetails({ id, initialBook }) {
+  
   const net = useNetInfo();
   const offline =
     net.isConnected === false || net.isInternetReachable === false;
@@ -71,7 +74,7 @@ function BookDetails({ id, initialBook }) {
             onlineBook.current = remote;
             setBook(remote);
           }
-        }
+        } 
       } catch (requestError) {
         if (!active()) {
           return;

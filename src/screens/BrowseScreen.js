@@ -17,7 +17,9 @@ import {readBrowse, readSavedPage, writeBrowse} from '../data/storage';
 import {colors} from '../theme';
 
 
+ 
 const BookItem = memo(function BookItemView({book, details, open}) {
+ 
 
   return (
     <Pressable
@@ -80,6 +82,7 @@ function Chips({label, options, selected, onSelect}) {
 
 
 export function BrowseScreen({navigation}) {
+
   const [section, setSection] = useState('catalog');
   const [language, setLanguage] = useState('');
   const [topic, setTopic] = useState('');
@@ -190,6 +193,7 @@ function BookPage({
   const saved = section === 'saved';
   const loadOffline = !saved && offline;
   const active = !saved || focused;
+
   useEffect(() => {
     if (!active) {
       return;

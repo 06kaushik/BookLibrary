@@ -35,7 +35,7 @@ async function database() {
   return ready;
 }
 export async function readBrowse(key) {
-  
+
   const db = await database();
   const result = await db.execute(
     'SELECT rows_json FROM browse_cache WHERE filter_key = ?',
@@ -84,6 +84,7 @@ export async function saveBook(book) {
     ],
   );
 }
+
 export async function removeBook(id) {
   const db = await database();
   await db.execute('DELETE FROM saved_books WHERE id = ?', [id]);
